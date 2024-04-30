@@ -42,13 +42,13 @@ class DebetcardTest {
 
     @Test
     void shouldTestV1() {
-        driver.findElement(By.cssSelector("[data-test-id=`name`] input")).sendKeys("Иванов Пирожок Булочкин");
-        driver.findElement(By.cssSelector("[data-test-id=`phone`] input")).sendKeys("+79250256215");
-        driver.findElement(By.cssSelector("[data-test-id=`agreement`]")).click();
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иванов Пирожок Булочкин");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79250256215");
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("button.button")).click();
         var actualElement = driver.findElement(By.cssSelector("[data-test-id=order-success]"));
         var actualText = actualElement.getText().trim();
-        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время", actualText);
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
         assertTrue(actualElement.isDisplayed());
     }
 }
